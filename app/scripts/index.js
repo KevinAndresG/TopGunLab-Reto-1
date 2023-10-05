@@ -1,5 +1,6 @@
 const contenedor = document.getElementById("tarjetas");
 const inpt = document.querySelectorAll("input")
+let citas = "citas" in localStorage ? JSON.parse(localStorage.getItem("citas")) : []
 const displayCards = () => {
     contenedor.innerHTML = ""
     citas.forEach((cards) => {
@@ -23,7 +24,6 @@ const noCitas = () => {
     noCit.textContent = "No Tienes Citas";
     contenedor.appendChild(noCit)
 }
-let citas = "citas" in localStorage ? JSON.parse(localStorage.getItem("citas")) : []
 if (citas.length > 0) {
     displayCards()
 } else {
@@ -36,13 +36,15 @@ agendar.addEventListener("click", (e) => {
     e.preventDefault();
     if (!inpNombre.value || !inpFecha.value) {
         inpt.forEach(inp => {
-            inp.classList.add("error")
+            if (!inp.value) {
+                inp.classList.add("error")
+            }
         })
         setTimeout(() => {
             inpt.forEach(inp => {
                 inp.classList.remove("error")
             })
-        }, 2000);
+        }, 1000);
     } else {
         let nuevaCita = {
             nombre: "",
