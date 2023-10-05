@@ -38,6 +38,11 @@ body #main-container #form-container #cita-form input {
   box-sizing: border-box;
   background-color: #7c98a2;
   box-shadow: inset 2px 2px 3px #69818a, inset -1px -1px 3px #8fafba;
+  transition: all 0.3s ease;
+}
+body #main-container #form-container #cita-form input.error {
+  border: 1px solid red;
+  transition: all 0.3s ease;
 }
 body #main-container #form-container #cita-form input:focus-visible {
   outline: none;

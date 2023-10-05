@@ -10,6 +10,7 @@ body {
         justify-content: center;
         align-items: center;
 
+
         #form-container {
             width: 100%;
             display: flex;
@@ -39,6 +40,12 @@ body {
                     box-sizing: border-box;
                     background-color: #7c98a2;
                     box-shadow: inset 2px 2px 3px #69818a, inset -1px -1px 3px #8fafba;
+                    transition: all .3s ease;
+
+                    &.error {
+                        border: 1px solid red;
+                        transition: all .3s ease;
+                    }
 
                     &:focus-visible {
                         outline: none;
