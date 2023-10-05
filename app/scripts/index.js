@@ -5,7 +5,6 @@ const inpNombre = document.querySelector(".nombre");
 const inpFecha = document.querySelector(".fecha");
 agendar.addEventListener("click", (e) => {
     e.preventDefault();
-    debugger;
     if (!inpNombre.value || !inpFecha.value) {
         alert("Rellene Todos Los Campos")
     } else {
@@ -21,6 +20,7 @@ agendar.addEventListener("click", (e) => {
         nuevaCita.fecha = fecha
         nuevaCita.hora = hora
         citas.push(nuevaCita)
+        localStorage.setItem("citas", JSON.stringify(citas))
         inpFecha.value = ""
         inpNombre.value = ""
         displayCards()
