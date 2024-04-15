@@ -19,11 +19,8 @@ const displayCards = () => {
             h3Name.textContent = cards.nombre;
             const pFecha = document.createElement("p");
             pFecha.textContent = cards.fecha;
-            const pHora = document.createElement("p");
-            pHora.textContent = cards.hora;
             card.appendChild(h3Name);
             card.appendChild(pFecha);
-            card.appendChild(pHora);
             card.insertBefore(del, card.firstChild);
             contenedor.appendChild(card);
         })
@@ -57,14 +54,11 @@ agendar.addEventListener("click", (e) => {
         let nuevaCita = {
             nombre: "",
             fecha: "",
-            hora: ""
         };
         const nombre = inpNombre.value
         const fecha = inpFecha.value.split(" ")[0]
-        const hora = inpFecha.value.split(" ")[1]
         nuevaCita.nombre = nombre
         nuevaCita.fecha = fecha
-        nuevaCita.hora = hora
         citas.push(nuevaCita)
         localStorage.setItem("citas", JSON.stringify(citas))
         inpFecha.value = ""
